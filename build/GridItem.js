@@ -608,15 +608,9 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
         }),
         // We can set the width and height on the child, but unfortunately we can't set the position.
         style: child.props.dangerousStyle && Object.keys(child.props.dangerousStyle).length ? _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos)), child.props.dangerousStyle) : _objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos))
-      }); //  const tempStyle = {
-      // 	...this.props.style,
-      // 	...this.createStyle(pos),
-      // 	...child.props.fullscreenStyles
-      //  }
-
+      });
 
       console.log({
-        tempStyle: deepCopy(tempStyle),
         pos: deepCopy(pos),
         'this.createStyle(pos)': deepCopy(this.createStyle(pos)),
         'this.props.style': deepCopy(this.props.style),

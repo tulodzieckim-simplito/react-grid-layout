@@ -646,14 +646,8 @@ export default class GridItem extends React.Component<Props, State> {
 		}
 	 });
 
-	//  const tempStyle = {
-	// 	...this.props.style,
-	// 	...this.createStyle(pos),
-	// 	...child.props.fullscreenStyles
-	//  }
 
 	 console.log({
-		 tempStyle: deepCopy(tempStyle), 
 		 pos: deepCopy(pos),
 		 'this.createStyle(pos)': deepCopy(this.createStyle(pos)),
 		 'this.props.style': deepCopy(this.props.style), 
