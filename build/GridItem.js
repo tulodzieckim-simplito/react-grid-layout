@@ -552,7 +552,7 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
 
       var tempStyle = _objectSpread(_objectSpread(_objectSpread({}, this.props.style), this.createStyle(pos)), child.props.fullscreenStyles);
 
-      console.log(tempStyle); // Resizable support. This is usually on but the user can toggle it off.
+      console.log(tempStyle, newChild); // Resizable support. This is usually on but the user can toggle it off.
       //  newChild = this.mixinResizable(newChild, pos, isResizable);
       // Draggable support. This is always on, except for with placeholders.
       //  newChild = this.mixinDraggable(newChild, isDraggable);
