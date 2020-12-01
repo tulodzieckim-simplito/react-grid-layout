@@ -617,7 +617,6 @@ export default class GridItem extends React.Component<Props, State> {
       this.state
     );
     const child = React.Children.only(this.props.children);
-		console.log({child, 'child.props': child.props})
 	 // Create the child element. We clone the existing element but modify its className and style.
 
     let newChild = React.cloneElement(child, {
@@ -651,6 +650,8 @@ export default class GridItem extends React.Component<Props, State> {
 
 	 console.log({
 		 tempStyle: deepCopy(tempStyle), 
+		 pos: deepCopy(pos),
+		 'this.createStyle(pos)': deepCopy(this.createStyle(pos)),
 		 'this.props.style': deepCopy(this.props.style), 
 		 'child.props.fullscreenStyles': deepCopy(child.props.fullscreenStyles)
 		});

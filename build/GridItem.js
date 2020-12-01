@@ -594,12 +594,8 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
           useCSSTransforms = _this$props9.useCSSTransforms;
       var pos = (0, _calculateUtils.calcGridItemPosition)(this.getPositionParams(), x, y, w, h, this.state);
 
-      var child = _react.default.Children.only(this.props.children);
+      var child = _react.default.Children.only(this.props.children); // Create the child element. We clone the existing element but modify its className and style.
 
-      console.log({
-        child: child,
-        'child.props': child.props
-      }); // Create the child element. We clone the existing element but modify its className and style.
 
       var newChild = /*#__PURE__*/_react.default.cloneElement(child, {
         className: (0, _classnames.default)("react-grid-item", child.props.className, this.props.className, {
@@ -618,6 +614,8 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
 
       console.log({
         tempStyle: deepCopy(tempStyle),
+        pos: deepCopy(pos),
+        'this.createStyle(pos)': deepCopy(this.createStyle(pos)),
         'this.props.style': deepCopy(this.props.style),
         'child.props.fullscreenStyles': deepCopy(child.props.fullscreenStyles)
       }); // Resizable support. This is usually on but the user can toggle it off.
