@@ -619,10 +619,10 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
         'this.props.style': deepCopy(this.props.style),
         'child.props.fullscreenStyles': deepCopy(child.props.fullscreenStyles)
       }); // Resizable support. This is usually on but the user can toggle it off.
-      //  newChild = this.mixinResizable(newChild, pos, isResizable);
-      // Draggable support. This is always on, except for with placeholders.
-      //  newChild = this.mixinDraggable(newChild, isDraggable);
 
+      newChild = this.mixinResizable(newChild, pos, isResizable); // Draggable support. This is always on, except for with placeholders.
+
+      newChild = this.mixinDraggable(newChild, isDraggable);
       return newChild;
     }
   }]);
