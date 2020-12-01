@@ -535,7 +535,7 @@ export default class ReactGridLayout extends React.Component<Props, State> {
 
     // isBounded set on child if set on parent, and child is not explicitly false
     const bounded = draggable && isBounded && l.isBounded !== false;
-
+	 console.log(child);
     return (
       <GridItem
         containerWidth={width}

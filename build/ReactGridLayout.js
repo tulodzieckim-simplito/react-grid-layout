@@ -616,6 +616,7 @@ var ReactGridLayout = /*#__PURE__*/function (_React$Component) {
       var resizeHandlesOptions = l.resizeHandles || resizeHandles; // isBounded set on child if set on parent, and child is not explicitly false
 
       var bounded = draggable && isBounded && l.isBounded !== false;
+      console.log(child);
       return /*#__PURE__*/_react.default.createElement(_GridItem.default, {
         containerWidth: width,
         cols: cols,
