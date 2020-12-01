@@ -636,9 +636,9 @@ export default class GridItem extends React.Component<Props, State> {
         ...this.props.style,
         ...child.props.style,
 		  ...this.createStyle(pos),
-		  ...child.props.overritingStyles
+		  ...child.props.fullscreenStyles
       }
-    });
+	 });
 
     // Resizable support. This is usually on but the user can toggle it off.
     newChild = this.mixinResizable(newChild, pos, isResizable);
