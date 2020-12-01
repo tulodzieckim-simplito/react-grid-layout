@@ -659,7 +659,6 @@ var ReactGridLayout = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log('ReactGridLayout render method');
       var _this$props7 = this.props,
           className = _this$props7.className,
           style = _this$props7.style,

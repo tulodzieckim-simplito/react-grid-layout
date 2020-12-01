@@ -543,7 +543,7 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
           cssTransforms: useCSSTransforms
         }),
         // We can set the width and height on the child, but unfortunately we can't set the position.
-        style: _objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos))
+        style: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos)), child.props.overritingStyles)
       }); // Resizable support. This is usually on but the user can toggle it off.
 
 

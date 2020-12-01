@@ -699,7 +699,6 @@ export default class ReactGridLayout extends React.Component<Props, State> {
   };
 
   render() {
-    console.log("ReactGridLayout render method");
     const { className, style, isDroppable, innerRef } = this.props;
 
     const mergedClassName = classNames(layoutClassName, className);
