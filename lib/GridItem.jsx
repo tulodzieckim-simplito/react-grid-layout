@@ -31,7 +31,7 @@ import type {
 import type { PositionParams } from "./calculateUtils";
 import type { ResizeHandles, ResizeHandle } from "./ReactGridLayoutPropTypes";
 
-const deepCopy = (obj) => JSON.parse(JSON.stringify(obj));
+const deepCopy = (obj) => JSON.parse(JSON.stringify(obj || {}));
 
 type PartialPosition = { top: number, left: number };
 type GridItemCallback<Data: GridDragEvent | GridResizeEvent> = (

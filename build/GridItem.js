@@ -54,7 +54,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var deepCopy = function deepCopy(obj) {
-  return JSON.parse(JSON.stringify(obj));
+  return JSON.parse(JSON.stringify(obj || {}));
 };
 /*:: type PartialPosition = { top: number, left: number };*/
 
