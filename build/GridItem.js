@@ -53,6 +53,70 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var deepCopy = function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj));
+};
+/*:: type PartialPosition = { top: number, left: number };*/
+
+/*:: type GridItemCallback<Data: GridDragEvent | GridResizeEvent> = (
+  i: string,
+  w: number,
+  h: number,
+  Data
+) => void;*/
+
+/*:: type State = {
+  resizing: ?{ width: number, height: number },
+  dragging: ?{ top: number, left: number },
+  className: string
+};*/
+
+/*:: type Props = {
+  children: ReactElement<any>,
+  cols: number,
+  containerWidth: number,
+  margin: [number, number],
+  containerPadding: [number, number],
+  rowHeight: number,
+  maxRows: number,
+  isDraggable: boolean,
+  isResizable: boolean,
+  isBounded: boolean,
+  static?: boolean,
+  useCSSTransforms?: boolean,
+  usePercentages?: boolean,
+  transformScale: number,
+  droppingPosition?: DroppingPosition,
+
+  className: string,
+  style?: Object,
+  // Draggability
+  cancel: string,
+  handle: string,
+
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+
+  minW: number,
+  maxW: number,
+  minH: number,
+  maxH: number,
+  i: string,
+
+  resizeHandles?: ResizeHandles,
+  resizeHandle?: ResizeHandle,
+
+  onDrag?: GridItemCallback<GridDragEvent>,
+  onDragStart?: GridItemCallback<GridDragEvent>,
+  onDragStop?: GridItemCallback<GridDragEvent>,
+  onResize?: GridItemCallback<GridResizeEvent>,
+  onResizeStart?: GridItemCallback<GridResizeEvent>,
+  onResizeStop?: GridItemCallback<GridResizeEvent>
+};*/
+
+
 /**
  * An individual item within a ReactGridLayout.
  */
@@ -552,7 +616,11 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
 
       var tempStyle = _objectSpread(_objectSpread(_objectSpread({}, this.props.style), this.createStyle(pos)), child.props.fullscreenStyles);
 
-      console.log(tempStyle, newChild); // Resizable support. This is usually on but the user can toggle it off.
+      console.log({
+        tempStyle: deepCopy(tempStyle),
+        'this.props.style': deepCopy(this.props.style),
+        'child.props.fullscreenStyles': deepCopy(child.props.fullscreenStyles)
+      }); // Resizable support. This is usually on but the user can toggle it off.
       //  newChild = this.mixinResizable(newChild, pos, isResizable);
       // Draggable support. This is always on, except for with placeholders.
       //  newChild = this.mixinDraggable(newChild, isDraggable);

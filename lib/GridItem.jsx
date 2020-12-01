@@ -31,6 +31,8 @@ import type {
 import type { PositionParams } from "./calculateUtils";
 import type { ResizeHandles, ResizeHandle } from "./ReactGridLayoutPropTypes";
 
+const deepCopy = (obj) => JSON.parse(JSON.stringify(obj));
+
 type PartialPosition = { top: number, left: number };
 type GridItemCallback<Data: GridDragEvent | GridResizeEvent> = (
   i: string,
@@ -647,7 +649,11 @@ export default class GridItem extends React.Component<Props, State> {
 		...child.props.fullscreenStyles
 	 }
 
-	 console.log(tempStyle, newChild);
+	 console.log({
+		 tempStyle: deepCopy(tempStyle), 
+		 'this.props.style': deepCopy(this.props.style), 
+		 'child.props.fullscreenStyles': deepCopy(child.props.fullscreenStyles)
+		});
 
     // Resizable support. This is usually on but the user can toggle it off.
    //  newChild = this.mixinResizable(newChild, pos, isResizable);
