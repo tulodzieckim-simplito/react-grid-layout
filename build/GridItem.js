@@ -530,8 +530,12 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
           useCSSTransforms = _this$props9.useCSSTransforms;
       var pos = (0, _calculateUtils.calcGridItemPosition)(this.getPositionParams(), x, y, w, h, this.state);
 
-      var child = _react.default.Children.only(this.props.children); // Create the child element. We clone the existing element but modify its className and style.
+      var child = _react.default.Children.only(this.props.children);
 
+      console.log({
+        child: child,
+        'child.props': child.props
+      }); // Create the child element. We clone the existing element but modify its className and style.
 
       var newChild = /*#__PURE__*/_react.default.cloneElement(child, {
         className: (0, _classnames.default)("react-grid-item", child.props.className, this.props.className, {

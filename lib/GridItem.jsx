@@ -615,7 +615,7 @@ export default class GridItem extends React.Component<Props, State> {
       this.state
     );
     const child = React.Children.only(this.props.children);
-
+		console.log({child, 'child.props': child.props})
     // Create the child element. We clone the existing element but modify its className and style.
     let newChild = React.cloneElement(child, {
       className: classNames(
