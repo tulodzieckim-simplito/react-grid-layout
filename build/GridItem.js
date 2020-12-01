@@ -607,7 +607,7 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
           cssTransforms: useCSSTransforms
         }),
         // We can set the width and height on the child, but unfortunately we can't set the position.
-        style: child.props.DANGEROUS_style && Object.keys(child.props.DANGEROUS_style).length ? _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos)), child.props.DANGEROUS_style) : _objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos))
+        style: child.props.dangerousStyle && Object.keys(child.props.dangerousStyle).length ? _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos)), child.props.dangerousStyle) : _objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos))
       }); //  const tempStyle = {
       // 	...this.props.style,
       // 	...this.createStyle(pos),

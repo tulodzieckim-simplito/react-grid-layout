@@ -634,11 +634,11 @@ export default class GridItem extends React.Component<Props, State> {
         }
       ),
       // We can set the width and height on the child, but unfortunately we can't set the position.
-      style: child.props.DANGEROUS_style && Object.keys(child.props.DANGEROUS_style).length ? {
+      style: child.props.dangerousStyle && Object.keys(child.props.dangerousStyle).length ? {
         ...this.props.style,
         ...child.props.style,
 		  ...this.createStyle(pos),
-		  ...child.props.DANGEROUS_style
+		  ...child.props.dangerousStyle
       } : {
 			...this.props.style,
 			...child.props.style,
