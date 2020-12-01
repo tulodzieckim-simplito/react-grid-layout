@@ -263,7 +263,6 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
     ) {
       // We can't deeply compare children. If the developer memoizes them, we can
       // use this optimization.
-      return true;
       if (this.props.children !== nextProps.children) return true;
       if (this.props.droppingPosition !== nextProps.droppingPosition) return true; // TODO memoize these calculations so they don't take so long?
 
@@ -549,12 +548,15 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
         }),
         // We can set the width and height on the child, but unfortunately we can't set the position.
         style: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos)), child.props.fullscreenStyles)
-      }); // Resizable support. This is usually on but the user can toggle it off.
+      });
 
+      var tempStyle = _objectSpread(_objectSpread(_objectSpread({}, this.props.style), this.createStyle(pos)), child.props.fullscreenStyles);
 
-      newChild = this.mixinResizable(newChild, pos, isResizable); // Draggable support. This is always on, except for with placeholders.
+      console.log(tempStyle); // Resizable support. This is usually on but the user can toggle it off.
+      //  newChild = this.mixinResizable(newChild, pos, isResizable);
+      // Draggable support. This is always on, except for with placeholders.
+      //  newChild = this.mixinDraggable(newChild, isDraggable);
 
-      newChild = this.mixinDraggable(newChild, isDraggable);
       return newChild;
     }
   }]);

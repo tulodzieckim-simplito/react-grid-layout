@@ -201,8 +201,7 @@ export default class GridItem extends React.Component<Props, State> {
 
   shouldComponentUpdate(nextProps: Props, nextState: State) {
     // We can't deeply compare children. If the developer memoizes them, we can
-	 // use this optimization.
-	 return true;
+    // use this optimization.
     if (this.props.children !== nextProps.children) return true;
     if (this.props.droppingPosition !== nextProps.droppingPosition) return true;
     // TODO memoize these calculations so they don't take so long?
@@ -617,7 +616,8 @@ export default class GridItem extends React.Component<Props, State> {
     );
     const child = React.Children.only(this.props.children);
 		console.log({child, 'child.props': child.props})
-    // Create the child element. We clone the existing element but modify its className and style.
+	 // Create the child element. We clone the existing element but modify its className and style.
+
     let newChild = React.cloneElement(child, {
       className: classNames(
         "react-grid-item",
@@ -641,11 +641,19 @@ export default class GridItem extends React.Component<Props, State> {
       }
 	 });
 
+	 const tempStyle = {
+		...this.props.style,
+		...this.createStyle(pos),
+		...child.props.fullscreenStyles
+	 }
+
+	 console.log(tempStyle);
+
     // Resizable support. This is usually on but the user can toggle it off.
-    newChild = this.mixinResizable(newChild, pos, isResizable);
+   //  newChild = this.mixinResizable(newChild, pos, isResizable);
 
     // Draggable support. This is always on, except for with placeholders.
-    newChild = this.mixinDraggable(newChild, isDraggable);
+   //  newChild = this.mixinDraggable(newChild, isDraggable);
 
     return newChild;
   }
