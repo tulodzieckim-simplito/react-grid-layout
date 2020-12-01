@@ -201,7 +201,8 @@ export default class GridItem extends React.Component<Props, State> {
 
   shouldComponentUpdate(nextProps: Props, nextState: State) {
     // We can't deeply compare children. If the developer memoizes them, we can
-    // use this optimization.
+	 // use this optimization.
+	 return true;
     if (this.props.children !== nextProps.children) return true;
     if (this.props.droppingPosition !== nextProps.droppingPosition) return true;
     // TODO memoize these calculations so they don't take so long?

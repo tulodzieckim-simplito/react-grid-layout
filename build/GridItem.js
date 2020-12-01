@@ -263,6 +263,7 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
     ) {
       // We can't deeply compare children. If the developer memoizes them, we can
       // use this optimization.
+      return true;
       if (this.props.children !== nextProps.children) return true;
       if (this.props.droppingPosition !== nextProps.droppingPosition) return true; // TODO memoize these calculations so they don't take so long?
 
