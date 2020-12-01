@@ -634,33 +634,37 @@ export default class GridItem extends React.Component<Props, State> {
         }
       ),
       // We can set the width and height on the child, but unfortunately we can't set the position.
-      style: {
+      style: child.props.DANGEROUS_style && Object.keys(child.props.DANGEROUS_style).length ? {
         ...this.props.style,
         ...child.props.style,
 		  ...this.createStyle(pos),
-		  ...child.props.fullscreenStyles
-      }
+		  ...child.props.DANGEROUS_style
+      } : {
+			...this.props.style,
+			...child.props.style,
+			...this.createStyle(pos),
+		}
 	 });
 
-	 const tempStyle = {
-		...this.props.style,
-		...this.createStyle(pos),
-		...child.props.fullscreenStyles
-	 }
+	//  const tempStyle = {
+	// 	...this.props.style,
+	// 	...this.createStyle(pos),
+	// 	...child.props.fullscreenStyles
+	//  }
 
-	 console.log({
-		 tempStyle: deepCopy(tempStyle), 
-		 pos: deepCopy(pos),
-		 'this.createStyle(pos)': deepCopy(this.createStyle(pos)),
-		 'this.props.style': deepCopy(this.props.style), 
-		 'child.props.fullscreenStyles': deepCopy(child.props.fullscreenStyles)
-		});
+	//  console.log({
+	// 	 tempStyle: deepCopy(tempStyle), 
+	// 	 pos: deepCopy(pos),
+	// 	 'this.createStyle(pos)': deepCopy(this.createStyle(pos)),
+	// 	 'this.props.style': deepCopy(this.props.style), 
+	// 	 'child.props.fullscreenStyles': deepCopy(child.props.fullscreenStyles)
+	// 	});
 
     // Resizable support. This is usually on but the user can toggle it off.
-    newChild = this.mixinResizable(newChild, pos, isResizable);
+    newChild = this.mixinResizable(newChild, pos, isResizable && !child.props.fullscreen);
 
     // Draggable support. This is always on, except for with placeholders.
-    newChild = this.mixinDraggable(newChild, isDraggable);
+    newChild = this.mixinDraggable(newChild, isDraggable && !child.props.fulls);
 
     return newChild;
   }

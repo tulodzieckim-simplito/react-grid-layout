@@ -607,22 +607,25 @@ var GridItem = /*#__PURE__*/function (_React$Component) {
           cssTransforms: useCSSTransforms
         }),
         // We can set the width and height on the child, but unfortunately we can't set the position.
-        style: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos)), child.props.fullscreenStyles)
-      });
+        style: child.props.DANGEROUS_style && Object.keys(child.props.DANGEROUS_style).length ? _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos)), child.props.DANGEROUS_style) : _objectSpread(_objectSpread(_objectSpread({}, this.props.style), child.props.style), this.createStyle(pos))
+      }); //  const tempStyle = {
+      // 	...this.props.style,
+      // 	...this.createStyle(pos),
+      // 	...child.props.fullscreenStyles
+      //  }
+      //  console.log({
+      // 	 tempStyle: deepCopy(tempStyle), 
+      // 	 pos: deepCopy(pos),
+      // 	 'this.createStyle(pos)': deepCopy(this.createStyle(pos)),
+      // 	 'this.props.style': deepCopy(this.props.style), 
+      // 	 'child.props.fullscreenStyles': deepCopy(child.props.fullscreenStyles)
+      // 	});
+      // Resizable support. This is usually on but the user can toggle it off.
 
-      var tempStyle = _objectSpread(_objectSpread(_objectSpread({}, this.props.style), this.createStyle(pos)), child.props.fullscreenStyles);
 
-      console.log({
-        tempStyle: deepCopy(tempStyle),
-        pos: deepCopy(pos),
-        'this.createStyle(pos)': deepCopy(this.createStyle(pos)),
-        'this.props.style': deepCopy(this.props.style),
-        'child.props.fullscreenStyles': deepCopy(child.props.fullscreenStyles)
-      }); // Resizable support. This is usually on but the user can toggle it off.
+      newChild = this.mixinResizable(newChild, pos, isResizable && !child.props.fullscreen); // Draggable support. This is always on, except for with placeholders.
 
-      newChild = this.mixinResizable(newChild, pos, isResizable); // Draggable support. This is always on, except for with placeholders.
-
-      newChild = this.mixinDraggable(newChild, isDraggable);
+      newChild = this.mixinDraggable(newChild, isDraggable && !child.props.fulls);
       return newChild;
     }
   }]);
