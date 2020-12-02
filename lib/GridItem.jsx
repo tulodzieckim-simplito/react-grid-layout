@@ -632,19 +632,24 @@ export default class GridItem extends React.Component<Props, State> {
         }
       ),
       // We can set the width and height on the child, but unfortunately we can't set the position.
-      style: {
-        ...this.props.style,
-        ...child.props.style,
-        ...this.createStyle(pos)
-      }
-    });
-
-    // Resizable support. This is usually on but the user can toggle it off.
-    newChild = this.mixinResizable(newChild, pos, isResizable);
-
-    // Draggable support. This is always on, except for with placeholders.
-    newChild = this.mixinDraggable(newChild, isDraggable);
-
-    return newChild;
+      style: child.props.dangerousStyle && Object.keys(child.props.dangerousStyle).length ? {
+			...this.props.style,
+			...child.props.style,
+			...this.createStyle(pos),
+			...child.props.dangerousStyle
+		 } : {
+			 ...this.props.style,
+			 ...child.props.style,
+			 ...this.createStyle(pos),
+		 }
+	  });
+ 
+	  // Resizable support. This is usually on but the user can toggle it off.
+	  newChild = this.mixinResizable(newChild, pos, isResizable && !child.props.fullscreen);
+ 
+	  // Draggable support. This is always on, except for with placeholders.
+	  newChild = this.mixinDraggable(newChild, isDraggable && !child.props.fullscreen);
+ 
+	  return newChild;
   }
 }
